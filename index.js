@@ -115,15 +115,6 @@ app.get("/", (req, res) => {
   })
 });
 
-//UI page
-
-app.get("/room", () => {
-  res.send(
-    `
-   
-    `
-  )
-})
 
 //Create room 
 app.post('/createroom', (req, res) => {
