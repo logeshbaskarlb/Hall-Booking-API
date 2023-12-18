@@ -105,8 +105,9 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send(`
   <h1>Hall Booking API!</h1>
-  <a href="">Booking room</a>
-  <a href="#"></a>
+  <a href="/rooms/booked">Room Booked</a><br/>
+  <a href="/customers/booked" > Customer Booked room</a><br/>
+  <a href="/customer/:name/data"> Customer History</a><br/>
   `);
 
   app.get("/rooms", () => {
@@ -119,9 +120,7 @@ app.get("/", (req, res) => {
 app.get("/room", () => {
   res.send(
     `
-    <a href="/rooms/booked>Room Booked</a>
-    <a href="/customers/booked > Customer Booked room</a>
-    <a href="/customer/:name/data"> Customer History</a>
+   
     `
   )
 })
@@ -204,15 +203,15 @@ app.get('/customers/booked', (req, res) => {
 
 // List how many times a customer has booked the room
 app.get('/customer/:name/data', (req, res) => {
-  const name = req.params.name; // Corrected variable name
+  const name = req.params.name; 
   const data = bookings.filter((booking) => booking.customerName === name) // Corrected variable name
     .map((booking) => {
       const room = rooms.find((q) => q.roomId === booking.roomId);
       return {
         roomName: booking.roomName,
         date: booking.date,
-        startTime: booking.startTime, // Corrected variable name
-        endTime: booking.endTime, // Corrected variable name
+        startTime: booking.startTime,
+        endTime: booking.endTime, 
         bookedStatus: "Ok"
       }
     })
