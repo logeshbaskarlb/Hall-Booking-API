@@ -105,7 +105,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send(`
   <h1>Hall Booking API!</h1>
-  <a href="#">Booking room</a>
+  <a href="">Booking room</a>
   <a href="#"></a>
   `);
 
@@ -119,9 +119,9 @@ app.get("/", (req, res) => {
 app.get("/room", () => {
   res.send(
     `
-    <a href="/rooms/booked></a>
-    <a href="/customers/booked></a>
-    <a href="/customers/booked></a>
+    <a href="/rooms/booked>Room Booked</a>
+    <a href="/customers/booked > Customer Booked room</a>
+    <a href="/customer/:name/data"> Customer History</a>
     `
   )
 })
